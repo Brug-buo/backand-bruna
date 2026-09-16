@@ -72,7 +72,7 @@ app.get('/treinos/:id', (req, res) => {
 
 
 // POST /treinos  
-app.post('/treino', (req, res) => {
+app.post('/treinos', (req, res) => {
     const erro = validarTreino(req.body);
 if (erro !== null){
     return res.status(400).json({ error: erro });
@@ -94,7 +94,7 @@ res.status(201).json(treino);
 app.put('/treinos/:id', (req, res) => {
     const id = Number(req.params.id);
     const treino = treinos.find((t) => t.id === id);
-    if (treino === underfind){
+    if (treino === undefined){
         res.status(404).json({erro: "não encontrado"});
     }
     const erro = validarTreino(req.body);

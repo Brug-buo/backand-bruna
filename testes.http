@@ -11,7 +11,7 @@ GET {{url}}/treinos
 
 
 ### 2 - Criar um treino             
-POST {{url}}/treino
+POST {{url}}/treinos
 Content-Type: application/json
 
 {
@@ -24,7 +24,7 @@ Content-Type: application/json
 
 
 ### 3 - Criar outro treino  
-POST {{url}}/treino
+POST {{url}}/treinos
 Content-Type: application/json
 
 {
@@ -50,7 +50,7 @@ GET {{url}}/treinos/99999
 
 
 
-### 6 - Criar sem o nome                   -> espera 400 ---> erro
+### 6 - Criar sem o nome                  
 POST {{url}}/treinos
 Content-Type: application/json
 
@@ -59,7 +59,7 @@ Content-Type: application/json
 }
 
 
-### 7 - Criar com duracao invalida         -> espera 400 --> erro
+### 7 - Criar com duracao invalida        
 POST {{url}}/treinos
 Content-Type: application/json
 
@@ -69,7 +69,7 @@ Content-Type: application/json
 }
 
 
-### 8 - Alterar o treino 1                 -> espera 200 ---> erro
+### 8 - Alterar o treino 1           
 PUT {{url}}/treinos/1
 Content-Type: application/json
 
@@ -79,7 +79,7 @@ Content-Type: application/json
 }
 
 
-### 9 - Alterar um treino que nao existe   -> espera 404 ---> erro
+### 9 - Alterar um treino que nao existe   
 PUT {{url}}/treinos/99999
 Content-Type: application/json
 

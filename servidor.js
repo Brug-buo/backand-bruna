@@ -29,21 +29,16 @@ let proximoId = 5;
 
 
 
-
-
 // Validacao
 var validarTreino = (corpo) => {
-    // [PROF] corpo.nome == ' ' so pega quando o nome eh exatamente um espaco. Pensa num jeito de pegar o nome vazio tambem.
-    if (typeof corpo.nome !== 'string' || corpo.nome == ' '){
-        return ("O campo nome é obrigatório!");
+    if (typeof corpo.nome !== 'string' || corpo.nome.trim() === '') {
+        return "O campo nome é obrigatório!";
     }
-    // [PROF] Com < 0 a duracao 0 passa. O README pede maior que zero.
-    if (typeof corpo.duracao !== 'number' || corpo.duracao < 0) {
-        return ("O campo duracção é obrigatório é maior que zero!");
+    if (typeof corpo.duracao !== 'number' || corpo.duracao <= 0) {
+        return "O campo duração é obrigatório e deve ser maior que zero!";
     }
     return null;
 };
-
 
 
 
@@ -63,8 +58,7 @@ app.get('/treinos/:id', (req, res) => {
     const treino = treinos.find((t) => t.id === id);
 
     if (treino === undefined){
-        // [PROF] O README pede o campo erro, nao error. Esse eh o unico teste que falta pra voce.
-        return res.status(404).json({ error: 'Treino não encontrado' });
+        return res.status(404).json({ erro: 'Treino não encontrado' });
     }
 
     res.status(200).json(treino);
@@ -78,8 +72,7 @@ app.get('/treinos/:id', (req, res) => {
 app.post('/treinos', (req, res) => {
     const erro = validarTreino(req.body);
 if (erro !== null){
-    // [PROF] Aqui tambem: erro, nao error.
-    return res.status(400).json({ error: erro });
+    return res.status(400).json({ erro: erro });
 }
 const treino ={id: proximoId,
     nome:req.body.nome,
@@ -99,13 +92,11 @@ app.put('/treinos/:id', (req, res) => {
     const id = Number(req.params.id);
     const treino = treinos.find((t) => t.id === id);
     if (treino === undefined){
-        // [PROF] Faltou o return. Sem ele o codigo continua descendo e tenta responder duas vezes.
-        res.status(404).json({erro: "não encontrado"});
+    return res.status(404).json({erro: "não encontrado"});
     }
     const erro = validarTreino(req.body);
     if (erro !== null){
-        // [PROF] Mesma coisa: faltou o return.
-        res.status(400).json({erro: erro});
+    return res.status(400).json({erro: erro});
     }
     treino.nome = req.body.nome;
     treino.duracao = req.body.duracao;

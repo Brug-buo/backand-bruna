@@ -1,113 +1,129 @@
-
 @url = http://localhost:3000
 
-
-### 1 - Listar todos os treinos 
+### 1 - Listar todos os treinos
 GET {{url}}/treinos
 
+###
 
-### 2 - Criar um treino             
+### 2 - Criar um treino
 POST {{url}}/treinos
 Content-Type: application/json
 
 {
-    "nome": "Peito e triceps",
-    "duracao": 90
+  "nome": "Peito e triceps",
+  "duracao": 90
 }
 
+###
 
-### 3 - Criar outro treino  
+### 3 - Criar outro treino
 POST {{url}}/treinos
 Content-Type: application/json
 
 {
-    "nome": "Costas e biceps",
-    "duracao": 12
+  "nome": "Costas e biceps",
+  "duracao": 12
 }
 
+###
 
-### 4 - Buscar o treino 1 
+### 4 - Buscar o treino 1
 GET {{url}}/treinos/1
 
+###
 
 ### 5 - Buscar um treino que nao existe
 GET {{url}}/treinos/99999
 
+###
 
-### 6 - Criar sem o nome                  
+### 6 - Criar sem o nome
 POST {{url}}/treinos
 Content-Type: application/json
 
 {
-    "duracao": 30
+  "duracao": 30
 }
 
+###
 
-### 7 - Criar com duracao invalida        
+### 7 - Criar com duracao invalida
 POST {{url}}/treinos
 Content-Type: application/json
 
 {
-    "nome": "Corrida",
-    "duracao": -5
+  "nome": "Corrida",
+  "duracao": -5
 }
 
+###
 
-### 8 - Alterar o treino 1           
+### 8 - Alterar o treino 1
 PUT {{url}}/treinos/1
 Content-Type: application/json
 
 {
-    "nome": "Peito, triceps e ombro",
-    "duracao": 75
+  "nome": "Peito, triceps e ombro",
+  "duracao": 75
 }
 
+###
 
-### 9 - Alterar um treino que nao existe   
+### 9 - Alterar um treino que nao existe
 PUT {{url}}/treinos/99999
 Content-Type: application/json
 
 {
-    "nome": "Qualquer",
-    "duracao": 10
+  "nome": "Qualquer",
+  "duracao": 10
 }
 
+###
 
 ### 10 - Apagar o treino 2
 DELETE {{url}}/treinos/2
 
+###
 
-### 11 - Apagar um treino que nao existe 
+### 11 - Apagar um treino que nao existe
 DELETE {{url}}/treinos/99999
 
+###
 
-### 12 - Listar de novo pra conferir 
+### 12 - Listar de novo pra conferir
 GET {{url}}/treinos
 
+###
 
-### 13 - Obter o total de treinos (Passo 7)
+### 13 - Obter o total de treinos 
 GET {{url}}/treinos/total
 
+###
 
-### 14 - Obter o resumo estatístico (Passo 11)
+### 14 - Obter o resumo estatístico 
 GET {{url}}/treinos/resumo
 
+###
 
-### 15 - Filtrar por duração mínima (Passo 8 + 9 Ordenado)
+### 15 - Filtrar por duração mínima 
 GET {{url}}/treinos?minimo=40
 
+###
 
-### 16 - Buscar por termo no nome (Passo 10 + 9 Ordenado)
+### 16 - Buscar por termo no nome 
 GET {{url}}/treinos?busca=peito
 
+###
 
 ### 17 - Combinar filtro de duração e busca por nome
 GET {{url}}/treinos?minimo=40&busca=peito
 
+###
 
-### 18 - Testar ID com formato inválido - Deve retornar 400 (Passo 12)
+### 18 - Testar ID com formato inválido 
 GET {{url}}/treinos/abc
 
+###
 
-### 19 - Testar ID decimal - Deve retornar 400 (Passo 12)
+### 19 - Testar ID decimal 
 GET {{url}}/treinos/2.5

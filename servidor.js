@@ -29,7 +29,7 @@ if (checarVazia.total === 0) {
   const inserir = db.prepare('INSERT INTO treinos (nome, duracao) VALUES (?, ?)');
   inserir.run('Peito e triceps', 90);
   inserir.run('Costas e biceps', 12);
-  console.log('👉 Banco de dados inicializado com treinos de teste!');
+  console.log('Banco de dados inicializado com treinos de teste!');
 }
 
 

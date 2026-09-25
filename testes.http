@@ -2,12 +2,8 @@
 @url = http://localhost:3000
 
 
-
 ### 1 - Listar todos os treinos 
 GET {{url}}/treinos
-
-
-
 
 
 ### 2 - Criar um treino             
@@ -20,9 +16,6 @@ Content-Type: application/json
 }
 
 
-
-
-
 ### 3 - Criar outro treino  
 POST {{url}}/treinos
 Content-Type: application/json
@@ -33,21 +26,12 @@ Content-Type: application/json
 }
 
 
-
-
-
 ### 4 - Buscar o treino 1 
 GET {{url}}/treinos/1
 
 
-
-
-
 ### 5 - Buscar um treino que nao existe
 GET {{url}}/treinos/99999
-
-
-
 
 
 ### 6 - Criar sem o nome                  
@@ -89,22 +73,41 @@ Content-Type: application/json
 }
 
 
-
-
-
 ### 10 - Apagar o treino 2
 DELETE {{url}}/treinos/2
-
-
-
 
 
 ### 11 - Apagar um treino que nao existe 
 DELETE {{url}}/treinos/99999
 
 
-
-
-
 ### 12 - Listar de novo pra conferir 
 GET {{url}}/treinos
+
+
+### 13 - Obter o total de treinos (Passo 7)
+GET {{url}}/treinos/total
+
+
+### 14 - Obter o resumo estatístico (Passo 11)
+GET {{url}}/treinos/resumo
+
+
+### 15 - Filtrar por duração mínima (Passo 8 + 9 Ordenado)
+GET {{url}}/treinos?minimo=40
+
+
+### 16 - Buscar por termo no nome (Passo 10 + 9 Ordenado)
+GET {{url}}/treinos?busca=peito
+
+
+### 17 - Combinar filtro de duração e busca por nome
+GET {{url}}/treinos?minimo=40&busca=peito
+
+
+### 18 - Testar ID com formato inválido - Deve retornar 400 (Passo 12)
+GET {{url}}/treinos/abc
+
+
+### 19 - Testar ID decimal - Deve retornar 400 (Passo 12)
+GET {{url}}/treinos/2.5

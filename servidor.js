@@ -9,9 +9,9 @@
 // ============================================================
 
 const express = require('express');
-const app = express();
+const { DatabaseSync } = require('node:sqlite');
 
-// Faz o Express entender JSON no corpo das requisicoes
+const app = express();
 app.use(express.json());
 
 

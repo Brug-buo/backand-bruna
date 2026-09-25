@@ -26,6 +26,21 @@ CREATE TABLE IF NOT EXISTS treinos (
 
 // Validacao
 
+<<<<<<< HEAD
+=======
+// DADOS INICIAIS DE TESTE
+const checarVazia = db.prepare('SELECT COUNT(*) AS total FROM treinos').get();
+if (checarVazia.total === 0) {
+  const inserir = db.prepare('INSERT INTO treinos (nome, duracao) VALUES (?, ?)');
+  inserir.run('Peito e triceps', 90);
+  inserir.run('Costas e biceps', 12);
+  console.log('Banco de dados inicializado com treinos de teste!');
+}
+
+
+
+// Função Auxiliar de Validação
+>>>>>>> ad51249d2d387e6ddec15c84d3ea8fb63385a533
 function validarTreino(corpo) {
     if (typeof corpo.nome !== 'string' || corpo.nome.trim() === '') {
         return 'O campo nome e obrigatorio e deve ser um texto.';

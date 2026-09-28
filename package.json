@@ -5,6 +5,7 @@
   "main": "servidor.js",
   "scripts": {
     "start": "node servidor.js"
+    
   },
   "dependencies": {
     "express": "^4.22.3"

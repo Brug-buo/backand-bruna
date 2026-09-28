@@ -120,6 +120,7 @@ app.put('/treinos/:id', (req, res) => {
   res.status(200).json(atualizado);
 });
 
+
 // DELETE /treinos/:id
 app.delete('/treinos/:id', (req, res) => {
   const id = Number(req.params.id);

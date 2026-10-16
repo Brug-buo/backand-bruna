@@ -14,3 +14,4 @@ nome TEXT NOT NULL,
 duracao INTEGER NOT NULL
 )
 `);
+module.exports = db;

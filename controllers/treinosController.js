@@ -1,4 +1,5 @@
 const service = require('../services/treinosService.js');
+const authController = require('./authController.js');
 
 function listar(req, res) {
     res.status(200).json(service.listarTodos());
@@ -14,6 +15,12 @@ function buscarUm(req, res) {
 }
 
 function criar(req, res) {
+
+  const usuarioLogado = authController.usuarioDaRequisicao(req);
+  if (usuarioLogado === null) {
+    return res.status(401).json({ erro: 'Faca login primeiro.' });
+  }
+  
     const resultado = service.criarTreino(req.body);
     if (resultado.erro !== undefined) {
         return res.status(400).json({ erro: resultado.erro });

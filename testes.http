@@ -1,105 +1,202 @@
 
-### ============================================================
-### testes.http - o contrato da API
-### ============================================================
-### Abra este arquivo no VS Code com a extensao REST Client e
-### clique em "Send Request" em cada bloco.
-### Voce terminou a aula quando TODAS responderem o status certo.
-### ============================================================
+### ============================================
+### TESTES DA API - DIARIO DE TREINOS
+### AULAS 04 E 05
+### ============================================
 
 @url = http://localhost:3000
 
-
-### 1 - Listar todos os treinos            -> espera 200 e um array
+### 1 - Listar treinos
 GET {{url}}/treinos
 
 
-### 2 - Criar um treino                    -> espera 201
-POST {{url}}/treinos
-Content-Type: application/json
-
-{
-    "nome": "Peito e triceps",
-    "duracao": 60
-}
-
-
-### 3 - Criar outro treino                 -> espera 201
-POST {{url}}/treinos
-Content-Type: application/json
-
-{
-    "nome": "Costas e biceps",
-    "duracao": 45
-}
-
-
-### 4 - Buscar o treino 1                  -> espera 200
+### 2 - Buscar treino pelo ID
 GET {{url}}/treinos/1
 
 
-### 5 - Buscar um treino que nao existe    -> espera 404
+### 3 - Buscar treino inexistente
 GET {{url}}/treinos/99999
 
 
-### 6 - Criar sem o nome                   -> espera 400
+### 4 - Criar treino sem login (401)
 POST {{url}}/treinos
 Content-Type: application/json
 
 {
-    "duracao": 30
+  "nome": "Peito e triceps",
+  "duracao": 60
+}
+
+### 5 - Login com Diego (200)
+POST {{url}}/login
+Content-Type: application/json
+
+{
+  "usuario": "diego",
+  "senha": "1234"
 }
 
 
-### 7 - Criar com duracao invalida         -> espera 400
+### 6 - Perfil do Diego (200)
+GET {{url}}/perfil
+
+
+### 7 - Criar treino logado (200 ou 201)
 POST {{url}}/treinos
 Content-Type: application/json
 
 {
-    "nome": "Corrida",
-    "duracao": -5
+  "nome": "Peito e triceps",
+  "duracao": 60
 }
 
 
-### 8 - Alterar o treino 1                 -> espera 200
+### 8 - Criar outro treino logado
+POST {{url}}/treinos
+Content-Type: application/json
+
+{
+  "nome": "Costas e biceps",
+  "duracao": 45
+}
+
+### 9 - Login com senha errada (401)
+POST {{url}}/login
+Content-Type: application/json
+
+{
+  "usuario": "diego",
+  "senha": "9999"
+}
+
+
+### 10 - Login com usuario inexistente (401)
+POST {{url}}/login
+Content-Type: application/json
+
+{
+  "usuario": "inexistente",
+  "senha": "1234"
+}
+
+
+### 11 - Login com Diego (200)
+POST {{url}}/login
+Content-Type: application/json
+
+{
+  "usuario": "diego",
+  "senha": "1234"
+}
+
+
+### 12 - Conferir perfil do Diego (200)
+GET {{url}}/perfil
+
+
+### 13 - Login com Aluno (200)
+POST {{url}}/login
+Content-Type: application/json
+
+{
+  "usuario": "aluno",
+  "senha": "senha"
+}
+
+
+### 14 - Conferir perfil do Aluno (200)
+GET {{url}}/perfil
+
+### 15 - Criar treino logado como Aluno
+POST {{url}}/treinos
+Content-Type: application/json
+
+{
+  "nome": "Corrida",
+  "duracao": 30
+}
+
+
+### 16 - Criar treino sem nome
+POST {{url}}/treinos
+Content-Type: application/json
+
+{
+  "duracao": 30
+}
+
+
+### 17 - Criar treino com duracao invalida
+POST {{url}}/treinos
+Content-Type: application/json
+
+{
+  "nome": "Corrida",
+  "duracao": -5
+}
+
+
+### 18 - Buscar treino
+GET {{url}}/treinos/1
+
+
+### 19 - Alterar treino
 PUT {{url}}/treinos/1
 Content-Type: application/json
 
 {
-    "nome": "Peito, triceps e ombro",
-    "duracao": 75
+  "nome": "Peito, triceps e ombro",
+  "duracao": 75
 }
 
 
-### 9 - Alterar um treino que nao existe   -> espera 404
+### 20 - Alterar treino inexistente
 PUT {{url}}/treinos/99999
 Content-Type: application/json
 
 {
-    "nome": "Qualquer",
-    "duracao": 10
+  "nome": "Qualquer",
+  "duracao": 10
 }
 
 
-### 10 - Apagar o treino 2                 -> espera 204 (sem corpo)
+### 21 - Apagar treino
 DELETE {{url}}/treinos/2
 
 
-### 11 - Apagar um treino que nao existe   -> espera 404
+### 22 - Apagar treino inexistente
 DELETE {{url}}/treinos/99999
 
 
-### 12 - Listar de novo pra conferir       -> espera 200 /
+### 23 - Listar treinos novamente
 GET {{url}}/treinos
 
-### 13. Busca por nome (Filtrar por 'peito')
+
+### 24 - Buscar treino por nome
 GET {{url}}/treinos?busca=peito
 
-### 14. Resumo estatístico (COUNT, SUM, AVG)
+
+### 25 - Resumo estatistico
 GET {{url}}/treinos/resumo
 
-### 15. Id invalido (Texto - Deve dar erro 400)
+
+### 26 - ID invalido
 GET {{url}}/treinos/abc
 
-### 16. Id invalido (Número inexistente - Deve dar erro 404)
-GET {{url}}/treinos/999
+### 27 - Logout (204)
+POST {{url}}/logout
+
+
+### 28 - Perfil depois do logout (401)
+GET {{url}}/perfil
+
+
+### 29 - Criar treino depois do logout (401)
+POST {{url}}/treinos
+Content-Type: application/json
+
+{
+  "nome": "Abdominal",
+  "duracao": 20
+}
+

@@ -1,0 +1,3 @@
+# Feedback das Aulas 02 a 05
+
+**BRUNA VALERA MARQUES — nota atual: 0,36.** Na Aula 02, entregou a API básica e recebeu 0,21. Na Aula 03, migrou a API para SQLite e recebeu 0,15; os desafios extras não foram considerados completos porque fez resumo e JOIN, mas não concluiu o filtro opcional combinado. Na Aula 04, criou as pastas de Controller, Service e Repository e os arquivos de banco e testes, mas a execução encontrou problema na proteção da rota de criação e o `teste-service.js` apresentou erro; por isso a nota da aula não foi lançada. Na Aula 05, criou sessão, cookie, login, perfil e logout, mas a rota protegida retornou erro; o ciclo completo não foi aprovado e a nota não foi lançada.

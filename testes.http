@@ -41,7 +41,7 @@ Content-Type: application/json
 GET {{url}}/perfil
 
 
-### 7 - Criar treino logado (200 ou 201)
+### 7 - Criar treino logado (201)
 POST {{url}}/treinos
 Content-Type: application/json
 
@@ -175,10 +175,8 @@ GET {{url}}/treinos
 ### 24 - Buscar treino por nome
 GET {{url}}/treinos?busca=peito
 
-
 ### 25 - Resumo estatistico
 GET {{url}}/treinos/resumo
-
 
 ### 26 - ID invalido
 GET {{url}}/treinos/abc
@@ -199,4 +197,13 @@ Content-Type: application/json
   "nome": "Abdominal",
   "duracao": 20
 }
+
+### 30 - Contagem de treinos
+GET {{url}}/treinos/total
+
+### 31 - Filtro por duração mínima
+GET {{url}}/treinos?minimo=40
+
+### 32 - Listagem ordenada
+GET {{url}}/treinos
 

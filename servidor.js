@@ -14,7 +14,6 @@ app.get('/treinos/resumo', treinosController.resumo);
 app.get('/treinos', treinosController.listarPorDuracao);
 app.get('/treinos/:id', treinosController.buscarUm);
 
-
 app.post('/treinos', treinosController.criar);
 app.put('/treinos/:id', treinosController.atualizar);
 app.delete('/treinos/:id', treinosController.remover);

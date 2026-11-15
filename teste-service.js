@@ -1,121 +1,38 @@
+const service = require('./services/treinosService.js');
 
-const repository = require('../repositories/treinosRepository.js');
+console.log('Teste 1 - Listar treinos:');
+console.log(service.listarTodos());
 
-// Validar os dados do treino
-function validarTreino(corpo) {
-    if (
-        !corpo ||
-        typeof corpo.nome !== 'string' ||
-        corpo.nome.trim() === ''
-    ) {
-        return 'O campo nome e obrigatorio e deve ser um texto.';
-    }
+console.log('\nTeste 2 - Criar treino válido:');
+console.log(
+    service.criarTreino({
+        nome: 'Teste sem servidor',
+        duracao: 15
+    })
+);
 
-    if (
-        typeof corpo.duracao !== 'number' ||
-        !Number.isFinite(corpo.duracao) ||
-        corpo.duracao <= 0
-    ) {
-        return 'O campo duracao e obrigatorio e deve ser um numero maior que zero.';
-    }
+console.log('\nTeste 3 - Nome vazio:');
+console.log(
+    service.criarTreino({
+        nome: '',
+        duracao: 15
+    })
+);
 
-    if (corpo.duracao > 180) {
-        return 'A duracao nao pode ser maior que 180 minutos.';
-    }
+console.log('\nTeste 4 - Duração acima de 180 minutos:');
+console.log(
+    service.criarTreino({
+        nome: 'Treino longo',
+        duracao: 181
+    })
+);
 
-    return null;
-}
+console.log('\nTeste 5 - Duração de 180 minutos:');
+console.log(
+    service.criarTreino({
+        nome: 'Treino no limite',
+        duracao: 180
+    })
+);
 
-// Listar todos os treinos
-function listarTodos() {
-    return repository.listarTodos();
-}
-
-// Buscar treino pelo ID
-function buscarPorId(id) {
-    return repository.buscarPorId(id);
-}
-
-// Criar treino
-function criarTreino(corpo) {
-    const erro = validarTreino(corpo);
-
-    if (erro !== null) {
-        return { erro: erro };
-    }
-
-    const novo = repository.criar(
-        corpo.nome.trim(),
-        corpo.duracao
-    );
-
-    return { treino: novo };
-}
-
-// Atualizar treino
-function atualizarTreino(id, corpo) {
-    const existente = repository.buscarPorId(id);
-
-    if (existente === undefined) {
-        return { naoEncontrado: true };
-    }
-
-    const erro = validarTreino(corpo);
-
-    if (erro !== null) {
-        return { erro: erro };
-    }
-
-    const atualizado = repository.atualizar(
-        id,
-        corpo.nome.trim(),
-        corpo.duracao
-    );
-
-    return { treino: atualizado };
-}
-
-// Remover treino
-function removerTreino(id) {
-    const existente = repository.buscarPorId(id);
-
-    if (existente === undefined) {
-        return { naoEncontrado: true };
-    }
-
-    repository.remover(id);
-
-    return { removido: true };
-}
-
-// Contar todos os treinos
-function contarTreinos() {
-    return repository.contarTodos();
-}
-
-// Listar treinos por duração mínima
-function listarPorDuracao(minimo) {
-    return repository.listarPorDuracao(minimo);
-}
-
-// Buscar treinos pelo nome
-function buscarPorNome(nome) {
-    return repository.buscarPorNome(nome);
-}
-
-// Obter resumo estatístico
-function resumoTreinos() {
-    return repository.resumo();
-}
-
-module.exports = {
-    listarTodos,
-    buscarPorId,
-    criarTreino,
-    atualizarTreino,
-    removerTreino,
-    contarTreinos,
-    listarPorDuracao,
-    buscarPorNome,
-    resumoTreinos
-};
+console.log('\nTestes do service finalizados.');

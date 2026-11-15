@@ -207,3 +207,66 @@ GET {{url}}/treinos?minimo=40
 ### 32 - Listagem ordenada
 GET {{url}}/treinos
 
+
+### LOGIN CORRETO
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "usuario": "diego",
+  "senha": "1234"
+}
+
+
+
+
+
+
+
+
+### 1 - Fazer login
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "usuario": "diego",
+  "senha": "1234"
+}
+
+### 2 - Consultar perfil
+GET http://localhost:3000/perfil
+
+### 3 - Fazer logout
+POST http://localhost:3000/logout
+
+### 4 - Tentar acessar perfil depois do logout
+GET http://localhost:3000/perfil
+
+
+
+### LOGIN CORRETO
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "usuario": "diego",
+  "senha": "1234"
+}
+
+### LOGIN COM SENHA ERRADA
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "usuario": "diego",
+  "senha": "9999"
+}
+
+### USUARIO INEXISTENTE
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "usuario": "inexistente",
+  "senha": "1234"
+}

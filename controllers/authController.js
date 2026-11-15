@@ -20,7 +20,7 @@ function lerCookie(req, nome) {
   return null;
 }
 
-function login(req, res) {
+async function login(req, res) {
   const usuarioRecebido = req.body?.usuario;
   const senhaRecebida = req.body?.senha;
 
@@ -36,7 +36,7 @@ function login(req, res) {
   const usuario = usuarioRecebido.trim();
   const senha = senhaRecebida;
 
-  const resultado = service.login(usuario, senha);
+  const resultado = await service.login(usuario, senha);
 
   if (resultado.invalido === true) {
     return res.status(401).json({

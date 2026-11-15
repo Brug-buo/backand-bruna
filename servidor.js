@@ -29,16 +29,13 @@ async function prepararUsuariosDeTeste() {
     }
 }
 
-// Proteger todas as rotas de treinos
-app.use('/treinos', authController.usuarioDaRequisicao);
-
 // Rotas de treinos
 app.get('/treinos/total', treinosController.contar);
 app.get('/treinos/resumo', treinosController.resumo);
 app.get('/treinos', treinosController.listarPorDuracao);
 app.get('/treinos/:id', treinosController.buscarUm);
 
-app.post('/treinos', treinosController.criar);
+app.post('/treinos', authController.usuarioDaRequisicao, treinosController.criar);
 app.put('/treinos/:id', treinosController.atualizar);
 app.delete('/treinos/:id', treinosController.remover);
 

@@ -1,9 +1,15 @@
-Bruna, seu repositório fechou em 2,1 de 2,5. Na aula 2, a API completa passou nos 10 testes já no commit d80068f, de 17/09. Na aula 3, a migração para SQLite passou nos 7 testes e nos três exercícios no commit 037b1b7, de 25/09, e os três opcionais (busca, resumo e id inválido) também funcionaram, o que somou +0,1 na nota.
+Bruna, sua nota do repositório ficou em 3,0 de 3,0.
 
-Na aula 4, os 8 testes de estrutura e de API passaram no commit 9b7f206, de 16/10. O que faltou foi a regra dos 180 minutos, que devia estar dentro de `validarTreino`, no `treinosService.js`. No commit 405b784, de 16/10 às 11:14, você escreveu `if (duracao > 180)` dentro do `teste-service.js`, onde a variável `duracao` não existe. Por isso a regra não vale para a API, e `node teste-service.js` agora termina com `ReferenceError: duracao is not defined`. Esse erro continua no repositório.
+Olhei todos os seus commits até 20/11 às 23h59 e fiquei com o melhor resultado de cada aula, então o que você reentregou já entrou na conta. Cada aula vale um quinto da nota, metade pela entrega e metade pelos testes que passaram.
 
-Na aula 5, login, perfil, logout, cookie, duas sessões separadas e a rota de treino protegida passaram nos 8 testes, no commit 475614f, de 30/10. Como a rota de treino agora exige login, os testes da aula 4 que não mandam cookie recebem 401, e isso é esperado, não tirou nota.
+Na aula 2 sua API passou nos 10 testes, no commit 03488dd de 15/11.
 
-A aula 6 não foi entregue. O `authService.js` ainda compara a senha em texto puro (`encontrado.senha !== senha`), não há `bcrypt` no `package.json` nem `criarUsuarios.js`, e a tabela de usuários guarda a senha sem hash. Por isso essa aula não pontuou. Para recuperar, o caminho é instalar o `bcrypt`, gerar o hash no `criarUsuarios.js` e trocar a comparação por `await bcrypt.compare`.
+Na aula 3 passaram 7 de 7 testes do SQLite, no commit 03488dd de 15/11. Os 3 exercícios (total, filtro mínimo e ordenação) funcionaram. Dos opcionais (busca, resumo e id inválido) funcionaram 3, e isso rendeu bônus.
 
-Se tiver dúvida, fala na próxima aula.
+Na aula 4 passaram 8 de 8 testes, no commit 03488dd de 15/11. A regra dos 180 minutos, que devia estar no validarTreino do treinosService.js, não está lá.
+
+Na aula 5 passaram 8 de 8 testes, no commit 8d08e4d de 15/11.
+
+Na aula 6 passaram 10 de 10 testes, no commit 03488dd de 15/11. O testes.http com login, perfil e logout está lá.
+
+As notas estão fechadas. Se tiver dúvida, fala na próxima aula.

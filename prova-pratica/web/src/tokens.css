@@ -1,35 +1,30 @@
 
-/* =====================================================================
-   TOKENS.CSS — TEMA ESPACIAL ROXO 💜
-   Paleta inspirada no espaço, galáxias e nebulosas.
-   ===================================================================== */
-
 :root {
 
   /* CORES */
 
   /* Roxo principal: botões, títulos e destaques */
-  --cor-primaria: #9B5DE5;
+  --cor-primaria: #a3a3a3;
   --cor-primaria-texto: #FFFFFF;
 
   /* Roxo suave: selos e elementos destacados */
-  --cor-secundaria: #35204F;
+  --cor-secundaria: #ff0000;
 
   /* Fundo geral: espaço profundo */
-  --cor-fundo: #100B1D;
+  --cor-fundo: #f0f008;
 
   /* Cartões e campos */
-  --cor-superficie: #211632;
+  --cor-superficie: #41ff08;
 
   /* Textos */
-  --cor-texto: #F5EDFF;
-  --cor-texto-suave: #B9A8D4;
+  --cor-texto: #ff00f2;
+  --cor-texto-suave: #0400ff;
 
   /* Bordas */
-  --cor-borda: #493565;
+  --cor-borda: #0ce3ff;
 
   /* Status */
-  --cor-sucesso: #65D6A5;
+  --cor-sucesso: #ff7b00;
   --cor-erro: #FF6B81;
   --cor-aviso: #FFC46B;
 

@@ -75,16 +75,23 @@ function remover(req, res) {
 }
 
 // card D
+
 function concluir(req, res) {
+    if (usuarioDaRequisicao(req) === null) {
+        return res.status(401).json({ erro: 'Faca login primeiro.' });
+    }
+
     if (!service.idValido(req.params.id)) {
         return res.status(400).json({ erro: 'Id invalido.' });
     }
+
     const id = Number(req.params.id);
     const resultado = service.concluirTreino(id);
 
     if (resultado.naoEncontrado === true) {
         return res.status(404).json({ erro: 'Treino nao encontrado.' });
     }
+
     res.status(200).json(resultado.treino);
 }
 

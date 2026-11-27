@@ -3,28 +3,28 @@
 
   /* CORES */
 
-  /* Roxo principal: botões, títulos e destaques */
-  --cor-primaria: #270350;
+  /* Roxo principal */
+  --cor-primaria: #7540A8;
   --cor-primaria-texto: #FFFFFF;
 
-  /* Roxo suave: selos e elementos destacados */
-  --cor-secundaria: #bd9cd8;
+  /* Lilás secundário */
+  --cor-secundaria: #BFA5F0;
 
-  /* Fundo geral: espaço profundo */
-  --cor-fundo: #3e0e6b;
+  /* Fundo espacial */
+  --cor-fundo: #100D3D;
 
   /* Cartões e campos */
-  --cor-superficie: #9054f1;
+  --cor-superficie: #BDA7F0;
 
   /* Textos */
-  --cor-texto: #520f0f;
-  --cor-texto-suave: #0400ff;
+  --cor-texto: #65339B;
+  --cor-texto-suave: #FFFFFF;
 
   /* Bordas */
-  --cor-borda: #b47ff8;
+  --cor-borda: #8060B5;
 
   /* Status */
-  --cor-sucesso: #ff7b00;
+  --cor-sucesso: #69D99A;
   --cor-erro: #FF6B81;
   --cor-aviso: #FFC46B;
 
@@ -32,13 +32,13 @@
   /* FORMA */
 
   /* Cartões */
-  --raio-borda: 14px;
+  --raio-borda: 28px;
 
   /* Botões e campos */
-  --raio-botao: 10px;
+  --raio-botao: 24px;
 
   /* Sombra com brilho roxo */
-  --sombra: 0 4px 18px rgba(155, 93, 229, 0.15);
+  --sombra: 0 8px 20px rgba(31, 8, 65, 0.55);
 
 
   /* TIPOGRAFIA */
@@ -51,4 +51,20 @@
   /* ESPAÇAMENTO */
 
   --espacamento: 16px;
+
+
+  /* CORES EXTRAS DA INTERFACE */
+
+  --cor-botao: #F9E879;
+  --cor-botao-texto: #59418D;
+
+  --cor-cartao: #BFA8EF;
+  --cor-cartao-borda: #7653A9;
+
+  --cor-campo: #C8B6F1;
+  --cor-campo-texto: #65339B;
+
+  --cor-brilho: #FFFFFF;
+  --cor-sombra: rgba(15, 5, 45, 0.65);
+
 }

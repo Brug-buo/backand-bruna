@@ -4,20 +4,20 @@
   /* CORES */
 
   /* Roxo principal: botões, títulos e destaques */
-  --cor-primaria: #a3a3a3;
+  --cor-primaria: #270350;
   --cor-primaria-texto: #FFFFFF;
 
   /* Roxo suave: selos e elementos destacados */
-  --cor-secundaria: #ff0000;
+  --cor-secundaria: #bd9cd8;
 
   /* Fundo geral: espaço profundo */
-  --cor-fundo: #f0f008;
+  --cor-fundo: #6e4397;
 
   /* Cartões e campos */
   --cor-superficie: #41ff08;
 
   /* Textos */
-  --cor-texto: #ff00f2;
+  --cor-texto: #520f0f;
   --cor-texto-suave: #0400ff;
 
   /* Bordas */

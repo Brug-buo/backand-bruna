@@ -1,10 +1,20 @@
+
 const bcrypt = require('bcrypt');
 const repository = require('../repositories/usuariosRepository.js');
 
 async function login(usuario, senha) {
-    const encontrado = repository.buscarPorUsuario(usuario);
+    if (
+        typeof usuario !== 'string' ||
+        typeof senha !== 'string' ||
+        usuario.trim() === '' ||
+        senha === ''
+    ) {
+        return { invalido: true };
+    }
 
-    if (encontrado === undefined) {
+    const encontrado = repository.buscarPorUsuario(usuario.trim());
+
+    if (!encontrado || !encontrado.senha_hash) {
         return { invalido: true };
     }
 
@@ -25,24 +35,40 @@ async function login(usuario, senha) {
     };
 }
 
-// card A
+// CADASTRO
 async function cadastrar(usuario, senha) {
-    if (usuario === '' || senha.length < 4) {
-        return { erro: 'Usuario e obrigatorio e a senha precisa de 4 ou mais caracteres.' };
+    if (typeof usuario !== 'string' || usuario.trim() === '') {
+        return { erro: 'Usuario obrigatorio.' };
     }
 
-    // o hash (que espera) vem ANTES da conferencia. Entre conferir se o
-    // usuario existe e gravar nao pode ter nenhum await: se tivesse, dois
-    // cadastros iguais ao mesmo tempo passariam pela conferencia e o segundo
-    // INSERT quebraria no UNIQUE.
-    const hash = await bcrypt.hash(senha, 10);
+    if (typeof senha !== 'string' || senha.length < 4) {
+        return {
+            erro: 'A senha precisa ter 4 ou mais caracteres.'
+        };
+    }
 
+    usuario = usuario.trim();
+
+    // Verifica se o usuario ja existe
     if (repository.buscarPorUsuario(usuario) !== undefined) {
         return { existe: true };
     }
 
+    // Gera o hash da senha
+    const hash = await bcrypt.hash(senha, 10);
+
+    // Insere no banco
     const id = repository.inserir(usuario, hash);
-    return { usuario: { id: id, usuario: usuario } };
+
+    return {
+        usuario: {
+            id,
+            usuario
+        }
+    };
 }
 
-module.exports = { login, cadastrar };
+module.exports = {
+    login,
+    cadastrar
+};
